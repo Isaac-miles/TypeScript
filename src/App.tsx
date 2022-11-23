@@ -8,7 +8,7 @@ function App() {
   
   return (
     <div >
-     <Todos items={['Jan', 'Feb', 'Mar']}/>
+     <Todos items={todo}/>
     </div>
   );
 }

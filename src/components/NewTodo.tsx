@@ -1,11 +1,14 @@
-import { PropsWithChildren, useRef } from "react";
+import { useRef, useContext } from "react";
+import Todo from "../models/todo";
+import { TodoContext } from "../store/todos-context";
 import classes from "./NewTodo.module.css";
 // const extraProps ={
 //   onAddTodo:()=>void
 // }
 
-const NewTodo: React.FC< PropsWithChildren<{ onAddTodo: (text: string) => void }>> = (props) => {
+const NewTodo: React.FC= () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const ctx = useContext(TodoContext);
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -14,12 +17,12 @@ const NewTodo: React.FC< PropsWithChildren<{ onAddTodo: (text: string) => void }
 
     if (enteredTodo.trim().length === 0) return; //or throw custom errors
 
-    props.onAddTodo(enteredTodo);
+    ctx.onAddTodo(enteredTodo);
   };
 
   return (
     <form onSubmit={submitHandler} className= {classes.form}>
-      <label htmlFor="text">Workout List with No State Management</label>
+      <label htmlFor="text">Daily Workout List</label>
       <input type="text" id="text" ref={inputRef} />
       <button>Add Workout</button>
     </form>

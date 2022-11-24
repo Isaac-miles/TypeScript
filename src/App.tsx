@@ -14,13 +14,13 @@ function App() {
       return prevTodo.concat(newTodo);
     });
   };
-
-  console.log(todo);
-
+  const removeTodo =(id:string)=>{
+    setTodo((prev)=>prev.filter(todo=> todo.id !== id))
+  }
   return (
     <div>
       <NewTodo onAddTodo={onAddTodo} />
-      <Todos items={todo} />
+      <Todos items={todo}  removeTodo={removeTodo}/>
     </div>
   );
 }

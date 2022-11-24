@@ -1,10 +1,10 @@
-import React, { PropsWithChildren } from "react";
+import React, { MouseEventHandler, PropsWithChildren } from "react";
 
 import classes from './TodoList.module.css'
 
-const TodoList:React.FC<PropsWithChildren<{text:string}>> = (props)=>{
+const TodoList:React.FC<PropsWithChildren<{text:string; removeTodo:()=>void}>> = (props)=>{
 
-  return <li className={classes.list}>{props.text}</li>
+  return <li className={classes.list} onClick={props.removeTodo}>{props.text}</li>
     
 }
 

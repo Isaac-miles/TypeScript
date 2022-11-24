@@ -19,9 +19,9 @@ const NewTodo: React.FC< PropsWithChildren<{ onAddTodo: (text: string) => void }
 
   return (
     <form onSubmit={submitHandler} className= {classes.form}>
-      <label htmlFor="text">Todo Item</label>
+      <label htmlFor="text">Workout List with No State Management</label>
       <input type="text" id="text" ref={inputRef} />
-      <button>Add Todo</button>
+      <button>Add Workout</button>
     </form>
   );
 };

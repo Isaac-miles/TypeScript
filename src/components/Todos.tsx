@@ -4,12 +4,12 @@ import TodoList from "./TodoList";
 
 import classes from './Todos.module.css'
 
- const Todos:React.FC<PropsWithChildren<{items:Todo[]}> > =(props)=>{
+ const Todos:React.FC<PropsWithChildren<{items:Todo[]; removeTodo:(id:string)=>void}> > =(props)=>{
 
   return ( 
   <ul className={classes.todos}>
     {props.items.map(item =>(
-      <TodoList key={item.id} text={item.text}/>
+      <TodoList key={item.id} text={item.text} removeTodo= {props.removeTodo.bind(null, item.id)}/>
     ))}
   </ul>
   )

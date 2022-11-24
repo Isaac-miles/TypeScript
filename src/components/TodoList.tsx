@@ -1,8 +1,10 @@
 import React, { PropsWithChildren } from "react";
 
+import classes from './TodoList.module.css'
+
 const TodoList:React.FC<PropsWithChildren<{text:string}>> = (props)=>{
 
-  return <li>{props.text}</li>
+  return <li className={classes.list}>{props.text}</li>
     
 }
 
